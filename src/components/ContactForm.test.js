@@ -1,6 +1,6 @@
 import React from "react";
 import { render, act, fireEvent, wait } from "@testing-library/react";
-import ContactForm, { onSubmit } from "./ContactForm";
+import ContactForm from "./ContactForm";
 
 
 
@@ -22,5 +22,10 @@ test("", async () => {
         fireEvent.click(getByTestId("submit"));
     });
 
-    wait(() => {getByText(/John/i)});
+    wait(() => {
+        getByText(/John/i);
+        getByText(/Doe/i);
+        getByText(/email@email.com/i);
+        getByText(/A message/i);
+    });
 });
