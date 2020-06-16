@@ -1,5 +1,5 @@
 import React from "react";
-import { render, act, fireEvent } from "@testing-library/react";
+import { render, act, fireEvent, wait } from "@testing-library/react";
 import ContactForm, { onSubmit } from "./ContactForm";
 
 
@@ -22,5 +22,5 @@ test("", async () => {
         fireEvent.click(getByTestId("submit"));
     });
 
-    getByText(/John/i);
+    wait(() => {getByText(/John/i)});
 });
